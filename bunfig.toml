@@ -1,0 +1,4 @@
+preload = [
+  "./node_modules/bun-plugin-dotenvx/dist/index.js",
+#   ...
+]
