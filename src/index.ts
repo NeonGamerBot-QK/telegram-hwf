@@ -2,11 +2,12 @@ import { decryptString, encryptString } from './encryption';
 import env from './env'
 import prisma from "./prisma"
 import TelegramBot from 'node-telegram-bot-api';
-
-// console.log(envImport);
-
+import { getConstants } from './util/read-constants';
 const bot = new TelegramBot(env.TELEGRAM_TOKEN!, {polling: true});
-
+const constants = await getConstants()
+bot.on("polling_error", function (err) {
+    console.log(err);
+});
 bot.on("message", async (msg) => {
     const chatId = msg.chat.id;
     const txt = msg.text
@@ -20,7 +21,6 @@ bot.on("message", async (msg) => {
         mainChatId: encryptString(chatId.toString())   
     }
    })
-   console.log(userEntry)
    if(!userEntry) {
     await prisma.user.create({
         data: {
@@ -28,9 +28,11 @@ bot.on("message", async (msg) => {
             telegramId: encryptString(msg.from?.id.toString()!)
         }
     }).then(d=>console.log(d))
-    bot.sendMessage(chatId, 'Welcome! i just created your account..')
+    bot.sendMessage(chatId, 'Welcome! i just created your account.. here is something your should know\n'+constants.start_string)
    } else {
-    bot.sendMessage(chatId, "Hi you are already registered! hi there " + decryptString( userEntry.mainChatId))
+    bot.sendMessage(chatId, "Hi you are already registered! hi there " + decryptString( userEntry.mainChatId) + "here is the breifing anyways:\n"+constants.start_string)
    }
+    } else if (txt == "/help") {
+        bot.sendMessage(chatId, "hiii this is a help menu which will be multi lang later...")
     }
 })
