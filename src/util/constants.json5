@@ -1,3 +1,25 @@
 {
-start_string: "Thanks for using this bot! This bot is a simple foss bot which you can find on github! <github_url>\nPlease do note you are auto opted-in to newsletters and updates from this bot, you can opt out of it by running /optout-newsletters, you want your data to go bye bye? if u dont log anything for 1 year i forget you or you can dm the owner of this bot @neongamerbot to delete ur data."
+start_string: "Thanks for using this bot! This bot is a simple foss bot which you can find on github! <github_url>\nPlease do note you are auto opted-in to newsletters and updates from this bot, you can opt out of it by running /optout-newsletters, you want your data to go bye bye? if u dont log anything for 1 year i forget you or you can dm the owner of this bot @neongamerbot to delete ur data.",
+allFeelings: [
+    {"feeling": "happy", category: "yellow"},
+    {"feeling": "sad", category: "blue"},
+    {"feeling": "angry", category: "red"},
+    {"feeling": "anxious", category: "red"},
+    {"feeling": "excited", category: "yellow"},
+    {"feeling": "grateful", category: "yellow"},
+    {"feeling": "content", category: "green"},
+    {"feeling": "bored", category: "blue"},
+    {"feeling": "tired", category: "blue"},
+    {"feeling": "hungry", category: "red"},
+    {"feeling": "sick", category: "red"},
+    {"feeling": "nervous", category: "red"},
+    {"feeling": "stressed", category: "red"},
+    {"feeling": "anxious", category: "red"},
+    {"feeling": "depressed", category: "blue"},
+    {"feeling": "lonely", category: "blue"},
+    {"feeling": "frustrated", category: "red"},
+    {"feeling": "disappointed", category: "red"},
+    {"feeling": "disconnected", category: "blue"},
+    // start here copied list
+]
 }

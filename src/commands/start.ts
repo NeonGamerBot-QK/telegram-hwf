@@ -6,7 +6,7 @@ import prisma from "../prisma"
 export default {
     name: "start",
     run: async (bot: ModifiedTelegramBot, msg: TelegramBot.Message, args: string[]) => {
-const constants = bot.constants;
+        const constants = bot.constants;
         const chatId = msg.chat.id;
             const userEntry = await prisma.user.findFirst({
              where: {
