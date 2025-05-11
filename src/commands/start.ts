@@ -5,6 +5,7 @@ import prisma from "../prisma"
 
 export default {
     name: "start",
+    description: "telegrams start cmd",
     run: async (bot: ModifiedTelegramBot, msg: TelegramBot.Message, args: string[]) => {
         const constants = bot.constants;
         const chatId = msg.chat.id;

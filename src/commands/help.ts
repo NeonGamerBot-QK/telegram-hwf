@@ -3,7 +3,9 @@ import type { ModifiedTelegramBot } from ".."
 
 export default {
     name: "help",
+    description: "The help menu!",
     run: async (bot: ModifiedTelegramBot, msg: TelegramBot.Message, args: string[]) => {
-        bot.sendMessage(msg.chat.id, "hiii this is a help menu which will be multi lang later...")
+        const cmds = bot.commands.map(d=>`/${d.name} - ${d.description}`)
+        bot.sendMessage(msg.chat.id,`Commands list (${cmds.length}):\n${cmds.join('\n')}`)
     }
 }

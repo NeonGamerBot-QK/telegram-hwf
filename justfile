@@ -16,6 +16,9 @@ dbpush:
     just decrypt-env
     bunx prisma db push
     just encrypt-env
-
+dbmigrate:
+    just decrypt-env
+    bunx prisma migrate dev
+    just encrypt-env
 generate-keys: 
     bun run scripts/create-keys.ts

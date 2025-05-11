@@ -15,3 +15,12 @@ model User {
   telegramId  String 
   mainChatId String
 }
+
+
+model Feeling {
+  id Int @id @default(autoincrement())
+  types String 
+  description String?
+  tags String?
+  created_at   DateTime @default(now())
+}

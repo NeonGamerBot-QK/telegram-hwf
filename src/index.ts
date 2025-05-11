@@ -11,6 +11,13 @@ export interface ModifiedTelegramBot extends TelegramBot {
     constants: Constants
 }
 bot.commands = new Map();
+bot.commands.map = (f: any) => {
+    const mv = []
+    bot.commands.forEach((...args) => {
+        mv.push(f(...args))
+    })
+    return mv;
+}
 loadCommands(bot)
 bot.constants = await getConstants()
 bot.on("polling_error", function (err) {
@@ -31,5 +38,4 @@ bot.on("message", async (msg) => {
         cmd.run(bot, msg, args)
     }
     // bot.sendMessage(chatId, "hi")
-   
 })
