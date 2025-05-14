@@ -1,12 +1,12 @@
 export function getEmojiFromName(n: string): string {
-switch(n) {
+  switch (n) {
     case "yellow":
-    return "💛"
+      return "💛";
     case "blue":
-    return "💙"
+      return "💙";
     case "green":
-    return "💚"
+      return "💚";
     case "red":
-    return "❤️"
-}
+      return "❤️";
+  }
 }

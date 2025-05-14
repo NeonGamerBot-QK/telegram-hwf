@@ -5,8 +5,9 @@
   "devDependencies": {
     "@types/bun": "latest",
     "@types/node-telegram-bot-api": "^0.64.8",
+    "@types/stegcloak": "^1.0.2",
     "bun-plugin-dotenvx": "^0.6.3",
-    "@types/stegcloak": "^1.0.2"
+    "prettier": "^3.5.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
