@@ -8,6 +8,7 @@ import { loadCommands } from "./util/loader";
 const bot: ModifiedTelegramBot = new TelegramBot(env.TELEGRAM_TOKEN!, {
   polling: true,
 });
+
 export interface ModifiedTelegramBot extends TelegramBot {
   commands: Map<string, any>;
   constants: Constants;
@@ -40,5 +41,6 @@ bot.on("message", async (msg) => {
     if (!cmd) return;
     cmd.run(bot, msg, args);
   }
-  // bot.sendMessage(chatId, "hi")
 });
+
+startWebServer(bot, env.PORT)

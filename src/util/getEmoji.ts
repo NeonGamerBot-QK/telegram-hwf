@@ -1,12 +1,13 @@
+// heu = high enegry unplesant
 export function getEmojiFromName(n: string): string {
   switch (n) {
-    case "yellow":
+    case "hep":
       return "💛";
-    case "blue":
+    case "leu":
       return "💙";
-    case "green":
+    case "lep":
       return "💚";
-    case "red":
+    case "heu":
       return "❤️";
   }
 }

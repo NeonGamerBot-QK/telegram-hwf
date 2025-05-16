@@ -6,6 +6,7 @@ const envZ = z.object({
   ENCRYPTION_KEY: z.string(),
   ENC_IV: z.string(),
   ENC_KEY: z.string(),
+  PORT: z.string(), //dotenvx makes it a string
 });
 const envO = envZ.safeParse(envImport);
 (async () => {
@@ -15,7 +16,6 @@ const envO = envZ.safeParse(envImport);
         `${i.path[0]} should be ${i.expected}, but got ${i.received}`,
       );
     });
-    // return;
   }
 })();
 const env = envO.data!;
