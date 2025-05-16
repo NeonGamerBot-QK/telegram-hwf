@@ -43,4 +43,4 @@ bot.on("message", async (msg) => {
   }
 });
 
-startWebServer(bot, env.PORT)
+startWebServer(bot, env.PORT);
