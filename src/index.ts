@@ -4,7 +4,7 @@ import prisma from "./prisma";
 import TelegramBot from "node-telegram-bot-api";
 import { getConstants, type Constants } from "./util/read-constants";
 import { loadCommands } from "./util/loader";
-import { startWebServer} from "./util/webserver"
+import { startWebServer } from "./util/webserver";
 // @ts-ignore stfu
 const bot: ModifiedTelegramBot = new TelegramBot(env.TELEGRAM_TOKEN!, {
   polling: true,
