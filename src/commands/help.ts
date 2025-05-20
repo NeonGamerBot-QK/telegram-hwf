@@ -9,7 +9,9 @@ export default {
     msg: TelegramBot.Message,
     args: string[],
   ) => {
-    const cmds = bot.commands.map((d) => `/${d.name} ${d.usage??""} - ${d.description}`);
+    const cmds = bot.commands.map(
+      (d) => `/${d.name} ${d.usage ?? ""} - ${d.description}`,
+    );
     bot.sendMessage(
       msg.chat.id,
       `Commands list (${cmds.length}):\n${cmds.join("\n")}`,
