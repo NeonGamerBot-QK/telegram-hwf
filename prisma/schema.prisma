@@ -14,6 +14,9 @@ model User {
   id      Int      @id @default(autoincrement())
   telegramId  String 
   mainChatId String
+  feelings Feeling[]
+  friendsList String?
+  
 }
 
 
@@ -23,4 +26,6 @@ model Feeling {
   description String?
   tags String?
   created_at   DateTime @default(now())
+
+  User User[]
 }
