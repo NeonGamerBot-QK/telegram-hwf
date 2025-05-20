@@ -1,2 +1,3 @@
 -- AlterTable
-ALTER TABLE "User" ADD COLUMN "friendsList" TEXT;
+ALTER TABLE "User"
+ADD COLUMN "friendsList" TEXT;
