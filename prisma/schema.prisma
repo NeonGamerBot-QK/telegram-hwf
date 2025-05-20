@@ -9,23 +9,22 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
 // everything which is a "string" will be encrypted
 model User {
-  id      Int      @id @default(autoincrement())
-  telegramId  String 
-  mainChatId String
-  feelings Feeling[]
+  id          Int       @id @default(autoincrement())
+  telegramId  String
+  mainChatId  String
+  feelings    Feeling[]
   friendsList String?
-  
 }
 
-
 model Feeling {
-  id Int @id @default(autoincrement())
-  types String 
+  id          Int      @id @default(autoincrement())
+  types       String
   description String?
-  tags String?
-  created_at   DateTime @default(now())
+  tags        String?
+  created_at  DateTime @default(now())
 
   User User[]
 }
