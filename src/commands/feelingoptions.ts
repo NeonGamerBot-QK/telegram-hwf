@@ -10,7 +10,7 @@ export default {
     msg: TelegramBot.Message,
     args: string[],
   ) => {
-    const feelings:{[key:string]: any[]} = {};
+    const feelings: { [key: string]: any[] } = {};
     for (const emotion of bot.constants.allFeelings) {
       if (!feelings[emotion.category]) feelings[emotion.category] = [];
       feelings[emotion.category].push(emotion);
