@@ -11,7 +11,7 @@ export default {
   ) => {
     //@ts-ignore
     const cmds = bot.commands.map(
-      (d:any) => `/${d.name} ${d.usage ?? ""} - ${d.description}`,
+      (d: any) => `/${d.name} ${d.usage ?? ""} - ${d.description}`,
     );
     bot.sendMessage(
       msg.chat.id,
