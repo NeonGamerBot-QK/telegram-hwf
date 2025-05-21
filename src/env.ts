@@ -13,9 +13,8 @@ const envO = envZ.safeParse(envImport);
 (async () => {
   if (envO.error) {
     envO.error.issues.map((i) => {
-      
       console.log(
-      //@ts-ignore
+        //@ts-ignore
         `${i.path[0]} should be ${i.expected}, but got ${i.received}`,
       );
     });
