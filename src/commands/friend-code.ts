@@ -12,17 +12,23 @@ export default {
     args: string[],
   ) => {
     const userData = await prisma.user.findFirst({
-        where: {
-            telegramId: encryptString(msg.from!.id.toString()),
-        },
-        });
-        if(!userData) {
-            return bot.sendMessage(msg.chat.id, "You are not registered yet, please run /start ");
-        }
+      where: {
+        telegramId: encryptString(msg.from!.id.toString()),
+      },
+    });
+    if (!userData) {
+      return bot.sendMessage(
+        msg.chat.id,
+        "You are not registered yet, please run /start ",
+      );
+    }
 
-        const friendCode = args[0]
-        if(!friendCode) {
-            return bot.sendMessage(msg.chat.id, `Here is your friend code!: ${userData.id}`);
-        }
+    const friendCode = args[0];
+    if (!friendCode) {
+      return bot.sendMessage(
+        msg.chat.id,
+        `Here is your friend code!: ${userData.id}`,
+      );
+    }
   },
 };
