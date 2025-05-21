@@ -1,3 +1,4 @@
+//@ts-ignore u can in bun :3
 import envImport from "../.env";
 import { z } from "zod";
 
@@ -12,7 +13,9 @@ const envO = envZ.safeParse(envImport);
 (async () => {
   if (envO.error) {
     envO.error.issues.map((i) => {
+      
       console.log(
+      //@ts-ignore
         `${i.path[0]} should be ${i.expected}, but got ${i.received}`,
       );
     });

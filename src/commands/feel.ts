@@ -7,7 +7,7 @@ import type TelegramBot from "node-telegram-bot-api";
 import type { ModifiedTelegramBot } from "..";
 import prisma from "../prisma";
 import { decryptString, encryptString } from "../encryption";
-import { getEmojiFromName } from "../util/getEmoji";
+import { findEmojiFromEmotion, getEmojiFromName } from "../util/getEmoji";
 import { massSend } from "../util/mass-send";
 
 export default {
@@ -55,7 +55,7 @@ export default {
         },
       },
     });
-    const string = `${emotions.map((e) => getEmojiFromName(e)) || "X"} - ${memo} (${tags.join(",")})`;
+    const string = `${emotions.map((e) => findEmojiFromEmotion(e)) || "X"} - ${memo} (${tags.join(",")})`;
     bot.sendMessage(msg.chat.id, string);
     // TODO: sent to friends list
     const friends = userData.friendsList
@@ -63,5 +63,6 @@ export default {
       : [];
     // queue via func
     massSend(bot, string, friends);
+    return;
   },
 };

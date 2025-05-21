@@ -9,8 +9,9 @@ export default {
     msg: TelegramBot.Message,
     args: string[],
   ) => {
+    //@ts-ignore
     const cmds = bot.commands.map(
-      (d) => `/${d.name} ${d.usage ?? ""} - ${d.description}`,
+      (d:any) => `/${d.name} ${d.usage ?? ""} - ${d.description}`,
     );
     bot.sendMessage(
       msg.chat.id,
