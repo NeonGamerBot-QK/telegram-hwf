@@ -16,9 +16,8 @@ export interface ModifiedTelegramBot extends TelegramBot {
 }
 bot.commands = new Map();
 //@ts-ignore
-bot.commands.map = (f: any):any[] => {
-  
-  const mv:any[] = [];
+bot.commands.map = (f: any): any[] => {
+  const mv: any[] = [];
   bot.commands.forEach((...args) => {
     mv.push(f(...args));
   });
@@ -45,4 +44,4 @@ bot.on("message", async (msg) => {
   }
 });
 
-startWebServer(bot, parseInt(env.PORT) );
+startWebServer(bot, parseInt(env.PORT));
