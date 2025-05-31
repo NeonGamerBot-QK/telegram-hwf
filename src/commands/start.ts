@@ -39,20 +39,20 @@ export default {
           decryptString(userEntry.mainChatId) +
           "here is the breifing anyways:\n" +
           constants.start_string,
-        {
-          reply_markup: {
-            inline_keyboard: [
-              [
-                {
-                  text: "Open App",
-                  web_app: {
-                    url: "https://saahild.com", // Must be HTTPS
-                  },
-                },
-              ],
-            ],
-          },
-        },
+        // {
+        //   reply_markup: {
+        //     inline_keyboard: [
+        //       [
+        //         {
+        //           text: "Open App",
+        //           web_app: {
+        //             url: "https://saahild.com", // Must be HTTPS
+        //           },
+        //         },
+        //       ],
+        //     ],
+        //   },
+        // },
       );
     }
   },

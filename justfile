@@ -10,7 +10,9 @@ start:
     bun run src/index.ts
 
 dbgen:
+    just decrypt-env
     bunx prisma generate
+    just encrypt-env
 
 dbpush:
     just decrypt-env

@@ -13,10 +13,10 @@ datasource db {
 // everything which is a "string" will be encrypted
 model User {
   id          Int       @id @default(autoincrement())
-  telegramId  String
+  telegramId  String    @unique
   mainChatId  String
-  feelings    Feeling[]
   friendsList String?
+  feelings    Feeling[]
 }
 
 model Feeling {
@@ -26,5 +26,6 @@ model Feeling {
   tags        String?
   created_at  DateTime @default(now())
 
-  User User[]
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
 }

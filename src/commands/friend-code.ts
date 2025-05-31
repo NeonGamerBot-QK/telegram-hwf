@@ -5,7 +5,7 @@ import { decryptString, encryptString } from "../encryption";
 
 export default {
   name: "friend",
-  description: "pong",
+  description: "Add a friend!",
   run: async (
     bot: ModifiedTelegramBot,
     msg: TelegramBot.Message,
