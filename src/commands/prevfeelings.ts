@@ -12,21 +12,27 @@ export default {
     args: string[],
   ) => {
     // bot.sendMessage(msg.chat.id, "ping pong " + args.join(" "));
-const userWithFeelings = await prisma.user.findUnique({
-  where: {
+    const userWithFeelings = await prisma.user.findUnique({
+      where: {
         telegramId: encryptString(msg.from!.id.toString()),
+      },
+      include: {
+        feelings: true,
+      },
+    });
+    if (!userWithFeelings) {
+      return bot.sendMessage(
+        msg.chat.id,
+        "You are not registered yet, please run /start ",
+      );
+    }
+    if (userWithFeelings.feelings.length === 0) {
+      return bot.sendMessage(
+        msg.chat.id,
+        "You have no previous feelings logged yet, please run /feel to log your feelings.",
+      );
+    }
+    console.log(userWithFeelings?.feelings);
+    // TODO: finish this cmd :3
   },
-  include: {
-    feelings: true
-  }
-})
-if(!userWithFeelings) {
-    return bot.sendMessage(msg.chat.id, "You are not registered yet, please run /start ");
-}
-if(userWithFeelings.feelings.length === 0) {
-    return bot.sendMessage(msg.chat.id, "You have no previous feelings logged yet, please run /feel to log your feelings.");
-}
-console.log(userWithFeelings?.feelings)
-// TODO: finish this cmd :3 
-},
 };
