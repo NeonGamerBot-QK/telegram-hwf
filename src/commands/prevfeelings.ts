@@ -1,7 +1,7 @@
 import type TelegramBot from "node-telegram-bot-api";
 import type { ModifiedTelegramBot } from "..";
 import prisma from "../prisma";
-import { encryptString } from "../encryption";
+import { decryptString, encryptString } from "../encryption";
 
 export default {
   name: "prevfeelings",
@@ -33,6 +33,14 @@ export default {
       );
     }
     console.log(userWithFeelings?.feelings);
-    // TODO: finish this cmd :3
+    const feelingsList = userWithFeelings.feelings
+      .map((feeling) => {
+        return `${feeling.description} - ${decryptString(feeling.tags!)}`;
+      })
+      .join("\n");
+    return bot.sendMessage(
+      msg.chat.id,
+      `Here are your previous feelings:\n${feelingsList}`,
+    );
   },
 };
