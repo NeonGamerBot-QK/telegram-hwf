@@ -37,7 +37,7 @@ export default {
         chatId,
         "Hi you are already registered! hi there " +
           decryptString(userEntry.mainChatId) +
-          "here is the breifing anyways:\n" +
+          " here is the briefing anyways:\n" +
           constants.start_string,
         // {
         //   reply_markup: {
